@@ -27,12 +27,12 @@ public class PlayerPowerupHandler : MonoBehaviour
    //Fire rate power up
     private void FireRateUp()
     {
-        player.GetComponent<PlayerShootingHandler>().fireRate -= 100;
+        player.GetComponent<PlayerShootingHandler>().fireRate /= 2;
     }
 
     private void FireRateUp2()
     {
-        player.GetComponent<PlayerShootingHandler>().fireRate += 100;
+        player.GetComponent<PlayerShootingHandler>().fireRate *= 2;
     }
     
    //What they do

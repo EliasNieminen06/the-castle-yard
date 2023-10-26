@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f24ee43b102504fbfa99f7234a679d43
+guid: 4ecce7c0c9d6a48b9891feef48ea86fb
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,7 +7,7 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: aiFlat1
+      name: phong1
     second: {fileID: 2100000, guid: eeeda8f58933248e0ad58e8b12ecb60d, type: 2}
   materials:
     materialImportMode: 2
