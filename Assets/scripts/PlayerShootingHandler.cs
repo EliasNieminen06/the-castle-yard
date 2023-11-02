@@ -12,6 +12,7 @@ public class PlayerShootingHandler : MonoBehaviour
     public GameObject player;
     public GameObject particlePrefab;
     public LayerMask targetLayerMask;
+    public AudioSource hitSound;
 
     private WaitForSeconds shotDuration;
     public AudioSource gunAudio;
@@ -51,6 +52,8 @@ public class PlayerShootingHandler : MonoBehaviour
 
             if (Physics.Raycast(gunEnd.transform.position, player.transform.forward, out hit, weaponRange, targetLayerMask))
             {
+                hitSound.Play();
+
                 bulletTrail.SetPosition(1, hit.point);
 
                 GameObject particleSystemObj = Instantiate(particlePrefab, hit.point, Quaternion.identity);

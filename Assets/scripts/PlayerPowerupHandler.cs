@@ -10,18 +10,17 @@ public class PlayerPowerupHandler : MonoBehaviour
     void Start()
     {
         player = this.gameObject;
-        sound = player.GetComponent<AudioSource>();
     }
 
    //movment speed power up
     private void SpeedTimer()
     {
-        player.GetComponent<PlayerMovementHandler>().playerMovementSpeed += 5;
+        player.GetComponent<PlayerMovementHandler>().playerMovementSpeed *= 1.5f;
        
     }
     private void SpeedTimer2()
     {
-        player.GetComponent<PlayerMovementHandler>().playerMovementSpeed -= 5;
+        player.GetComponent<PlayerMovementHandler>().playerMovementSpeed /= 1.5f;
     }
 
    //Fire rate power up
@@ -38,9 +37,9 @@ public class PlayerPowerupHandler : MonoBehaviour
    //What they do
     private void OnTriggerEnter(Collider other)
     {
-        sound.Play();
         if (other.gameObject.tag == "PUSpeed")
         {
+            sound.Play();
             SpeedTimer();
             Invoke("SpeedTimer2", 7f);
             Destroy(other.gameObject);
@@ -48,6 +47,7 @@ public class PlayerPowerupHandler : MonoBehaviour
 
         if (other.gameObject.tag == "PUFireRate")
         {
+            sound.Play();
             FireRateUp();
             Invoke("FireRateUp2", 10f);
             Destroy(other.gameObject);
@@ -55,6 +55,7 @@ public class PlayerPowerupHandler : MonoBehaviour
 
         if (other.gameObject.tag == "PUHealth")
         {
+            sound.Play();
             player.GetComponent<PlayerDataHandler>().PlayerHealTaken(3);
             Destroy(other.gameObject);
         }

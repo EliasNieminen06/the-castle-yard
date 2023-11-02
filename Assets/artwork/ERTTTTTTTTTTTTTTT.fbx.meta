@@ -3,7 +3,12 @@ guid: 4b60d0f5110e14d33bab52c2c3e3613a
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tile_colors
+    second: {fileID: 2100000, guid: eeeda8f58933248e0ad58e8b12ecb60d, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

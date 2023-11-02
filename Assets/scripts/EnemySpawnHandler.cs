@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemySpawnHandler : MonoBehaviour
 {
@@ -49,16 +50,24 @@ public class EnemySpawnHandler : MonoBehaviour
     {
         if (times > 0)
         {
-            int spawnPointX = Random.Range(-20, 20);
-            int spawnPointZ = Random.Range(-20, 20);
+            int spawnPointX = Random.Range(-25, 25);
+            int spawnPointZ = Random.Range(-30, 30);
 
             Vector3 playerPos = new Vector3(Player.transform.position.x, 0, Player.transform.position.z);
 
             Vector3 spawnPos = new Vector3(spawnPointX, 1.5f, spawnPointZ);
 
-            float spawnDist = Vector3.Distance(spawnPos, playerPos);
+           
 
-            SpawnEnemy(spawnDist, spawnPos);
+            NavMeshHit hit;
+            NavMesh.SamplePosition(spawnPos, out hit, Mathf.Infinity, NavMesh.AllAreas);
+            var myRandomPositionInsideNavMesh = hit.position;
+
+            float spawnDist = Vector3.Distance(myRandomPositionInsideNavMesh, playerPos);
+
+
+
+            SpawnEnemy(spawnDist, myRandomPositionInsideNavMesh);
         }
         else
         {
