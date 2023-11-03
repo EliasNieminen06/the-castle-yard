@@ -9,7 +9,7 @@ public class GameGuiHandler : MonoBehaviour
     public TextMeshProUGUI clock;
     public GameObject player;
     public GameObject gameManager;
-    public Image health;
+    public RawImage health;
     public float withd;
     public float height;
     float time = 0;
@@ -20,6 +20,7 @@ public class GameGuiHandler : MonoBehaviour
         wave.text = "0";
         withd = 300;
         height = 15;
+        gameManager = GameObject.FindGameObjectWithTag("GameManager");
     }
 
     // Update is called once per frame

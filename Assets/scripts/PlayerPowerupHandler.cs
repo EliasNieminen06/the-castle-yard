@@ -11,8 +11,7 @@ public class PlayerPowerupHandler : MonoBehaviour
     {
         player = this.gameObject;
     }
-
-   //movment speed power up
+    //movment speed power up
     private void SpeedTimer()
     {
         player.GetComponent<PlayerMovementHandler>().playerMovementSpeed *= 1.5f;
@@ -55,7 +54,6 @@ public class PlayerPowerupHandler : MonoBehaviour
 
         if (other.gameObject.tag == "PUHealth")
         {
-            sound.Play();
             player.GetComponent<PlayerDataHandler>().PlayerHealTaken(3);
             Destroy(other.gameObject);
         }

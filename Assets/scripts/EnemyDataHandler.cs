@@ -56,9 +56,10 @@ public class EnemyDataHandler : MonoBehaviour
             Instantiate(powerup, Enemy.transform.position, Quaternion.identity);
         }
         int index = Random.Range(0, dmg.Length);
-        dmgSound.volume = 0.4f;
+        dmgSound.volume = 0.2f;
         dmgClip = dmg[index];
         dmgSound.clip = dmgClip;
+        dmgSound.pitch = Random.Range(0.6f, 0.9f);
         dmgSound.Play();
         foreach (Renderer r in GetComponentsInChildren<Renderer>())
         {

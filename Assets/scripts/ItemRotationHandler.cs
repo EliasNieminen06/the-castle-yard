@@ -8,6 +8,12 @@ public class ItemRotationHandler : MonoBehaviour
     void Start()
     {
         rotationSpeed = 50f;
+        Invoke("destroy", 20f);
+    }
+
+    private void destroy()
+    {
+        Destroy(this.gameObject);
     }
 
     // Update is called once per frame

@@ -8,6 +8,8 @@ public class PlayerMovementHandler : MonoBehaviour
     public float playerMovementSpeed;
     private Vector3 playerMovementVector;
     private Rigidbody PlayerRB;
+    public Animator animator;
+    private bool walking;
 
     // Start function
     void Start()
@@ -27,6 +29,10 @@ public class PlayerMovementHandler : MonoBehaviour
 
         // Normalize the player Movement Vector so the player doesnt go double speed when going diagonally
         playerMovementVector.Normalize();
+
+        walking = Input.anyKey;
+
+        animator.SetBool("walk", walking);
     }
 
     // FixedUpdate function

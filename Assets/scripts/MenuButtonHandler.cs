@@ -6,39 +6,24 @@ using UnityEngine.UI;
 
 public class MenuButtonHandler : MonoBehaviour
 {
-    public Image jumpScare;
+    public GameObject creditPanel;
     public void PlayButton()
     {
         SceneManager.LoadScene("GameMainScene");
     }
-    public void JumpScare()
+
+    public void CreditButton()
     {
-        jumpScare.enabled = true;
-        StartCoroutine(FadeImage(true));
+        creditPanel.SetActive(true);
     }
-    IEnumerator FadeImage(bool fadeAway)
+
+    public void MenuButton()
     {
-        // fade from opaque to transparent
-        if (fadeAway)
-        {
-            // loop over 1 second backwards
-            for (float i = 1; i >= 0; i -= Time.deltaTime)
-            {
-                // set color with i as alpha
-                jumpScare.color = new Color(1, 1, 1, i);
-                yield return null;
-            }
-        }
-        // fade from transparent to opaque
-        else
-        {
-            // loop over 1 second
-            for (float i = 0; i <= 1; i += Time.deltaTime)
-            {
-                // set color with i as alpha
-                jumpScare.color = new Color(1, 1, 1, i);
-                yield return null;
-            }
-        }
+        SceneManager.LoadScene("GameMenuScene");
+    }
+
+    public void BackButton()
+    {
+        creditPanel.SetActive(false);
     }
 }

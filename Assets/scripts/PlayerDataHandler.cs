@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerDataHandler : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class PlayerDataHandler : MonoBehaviour
     public GameObject player;
     public AudioSource damageSound;
     public AudioSource gameOver;
+    public AudioSource healSound;
 
     private float pitch;
 
@@ -67,8 +69,8 @@ public class PlayerDataHandler : MonoBehaviour
     public void PlayerHealTaken(int health)
     {
         pitch = Random.Range(0.9f, 1.1f);
-        damageSound.pitch = pitch;
-        damageSound.Play();
+        healSound.pitch = pitch;
+        healSound.Play();
         playerHealth += health;
         player.GetComponentInChildren<GameGuiHandler>().withd += 30;
 
@@ -80,6 +82,7 @@ public class PlayerDataHandler : MonoBehaviour
     {
         gameOver.Play();
         deathCount++;
+        SceneManager.LoadScene("GameOverScene");
         Time.timeScale = 0;
     }
 
